@@ -1,0 +1,2083 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EVA TOP UP</title>
+
+<style>
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#070914;
+    color:#fff;
+    min-height:100vh;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    background:rgba(9,11,25,.97);
+    border-bottom:1px solid #292e52;
+    padding:20px;
+    text-align:center;
+}
+
+header h1{
+    font-size:29px;
+    letter-spacing:4px;
+    color:#fff;
+}
+
+header h1 span{
+    color:#8b7cff;
+}
+
+header p{
+    color:#858aa8;
+    font-size:13px;
+    margin-top:7px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    text-align:center;
+    padding:55px 20px 35px;
+
+    background:
+    radial-gradient(
+        circle at 50% 0%,
+        rgba(126,104,255,.20),
+        transparent 45%
+    ),
+    linear-gradient(
+        180deg,
+        #0e1228,
+        #070914
+    );
+}
+
+.hero .badge{
+    display:inline-block;
+
+    padding:6px 12px;
+
+    border:1px solid #353b68;
+    border-radius:30px;
+
+    color:#a99fff;
+
+    font-size:11px;
+    letter-spacing:1px;
+
+    margin-bottom:14px;
+}
+
+.hero h2{
+    font-size:32px;
+
+    background:linear-gradient(
+        90deg,
+        #fff,
+        #a99fff
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    color:#858aa8;
+    margin-top:10px;
+    font-size:14px;
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.sectionTitle{
+    max-width:1100px;
+    margin:25px auto 0;
+    padding:0 25px;
+}
+
+.sectionTitle h3{
+    font-size:18px;
+}
+
+.sectionTitle p{
+    color:#646a87;
+    font-size:12px;
+    margin-top:5px;
+}
+
+
+/* =========================
+   PACKAGE GRID
+========================= */
+
+.grid{
+    max-width:1100px;
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(190px,1fr));
+
+    gap:15px;
+
+    padding:20px 25px 35px;
+}
+
+
+.card{
+    position:relative;
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        145deg,
+        #12162c,
+        #0d1020
+    );
+
+    border:1px solid #272d50;
+
+    border-radius:16px;
+
+    padding:20px 15px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+
+    border-color:#7669ff;
+
+    box-shadow:
+    0 10px 35px rgba(111,96,255,.16);
+}
+
+.card .icon{
+    font-size:39px;
+    margin-bottom:7px;
+}
+
+.card h3{
+    color:#fff;
+    font-size:17px;
+}
+
+.card .type{
+    color:#666c88;
+    font-size:11px;
+    margin-top:5px;
+}
+
+.card .price{
+    color:#a99fff;
+    font-size:21px;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.specialCard{
+    border-color:#4c427f;
+
+    background:
+    linear-gradient(
+        145deg,
+        #17142c,
+        #0d1020
+    );
+}
+
+.specialCard .price{
+    color:#ffd76a;
+}
+
+
+/* =========================
+   COMMON PAGE
+========================= */
+
+.page{
+    width:92%;
+    max-width:510px;
+
+    margin:30px auto 60px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #12162c,
+        #0c0f1e
+    );
+
+    border:1px solid #30365d;
+
+    border-radius:22px;
+
+    padding:25px;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.45);
+
+    animation:pageIn .4s ease;
+}
+
+@keyframes pageIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* =========================
+   PAGE HEADER
+========================= */
+
+.pageHeader{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    margin-bottom:22px;
+}
+
+.pageHeader h2{
+    font-size:23px;
+}
+
+.pageHeader h2 span{
+    color:#a99fff;
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress{
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:25px;
+}
+
+.step{
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    color:#626883;
+
+    font-size:11px;
+}
+
+.step.active{
+    color:#a99fff;
+}
+
+.stepNumber{
+    width:26px;
+    height:26px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:#191d35;
+
+    color:#777d99;
+
+    font-weight:bold;
+}
+
+.step.active .stepNumber{
+    background:#7669ff;
+    color:#fff;
+
+    box-shadow:
+    0 0 15px rgba(118,105,255,.25);
+}
+
+.line{
+    width:35px;
+    height:1px;
+
+    background:#30365d;
+
+    margin:0 8px;
+}
+
+
+/* =========================
+   ORDER CARD
+========================= */
+
+.orderCard{
+    background:#090c18;
+
+    border:1px solid #252b4a;
+
+    border-radius:15px;
+
+    padding:18px;
+
+    margin-bottom:22px;
+}
+
+.orderTitle{
+    color:#666c87;
+
+    font-size:10px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.4px;
+
+    margin-bottom:15px;
+}
+
+.orderMain{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+}
+
+.packageInfo{
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+}
+
+.packageIcon{
+    width:47px;
+    height:47px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:#171b32;
+
+    border:1px solid #292f51;
+
+    border-radius:12px;
+
+    font-size:25px;
+}
+
+.packageName{
+    color:#fff;
+
+    font-size:17px;
+
+    font-weight:bold;
+}
+
+.packageType{
+    color:#666c87;
+
+    font-size:11px;
+
+    margin-top:4px;
+}
+
+.priceBox{
+    text-align:right;
+}
+
+.priceLabel{
+    color:#666c87;
+
+    font-size:9px;
+
+    letter-spacing:1px;
+}
+
+.priceValue{
+    color:#ffd76a;
+
+    font-size:21px;
+
+    font-weight:bold;
+
+    margin-top:4px;
+}
+
+
+/* =========================
+   UID
+========================= */
+
+.uidTitle{
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    margin-bottom:7px;
+}
+
+.uidTitle span{
+    color:#a99fff;
+}
+
+.uidDescription{
+    color:#6e748f;
+
+    font-size:11px;
+
+    line-height:1.5;
+
+    margin-bottom:12px;
+}
+
+.uidInputBox{
+    position:relative;
+}
+
+.uidIcon{
+    position:absolute;
+
+    left:14px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    font-size:17px;
+
+    color:#777d99;
+}
+
+input{
+    width:100%;
+
+    padding:14px 14px 14px 44px;
+
+    background:#080b16;
+
+    color:#fff;
+
+    border:1px solid #30365a;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:15px;
+
+    transition:.2s;
+}
+
+input:focus{
+    border-color:#7669ff;
+
+    box-shadow:
+    0 0 0 3px rgba(118,105,255,.09);
+}
+
+input::placeholder{
+    color:#555b76;
+}
+
+
+/* =========================
+   INFO
+========================= */
+
+.securityInfo{
+    display:flex;
+
+    gap:10px;
+
+    margin-top:13px;
+
+    padding:12px;
+
+    background:#0e1222;
+
+    border:1px solid #222845;
+
+    border-radius:10px;
+}
+
+.securityIcon{
+    font-size:17px;
+}
+
+.securityText{
+    color:#656b86;
+
+    font-size:10px;
+
+    line-height:1.5;
+}
+
+.securityText strong{
+    color:#a1a6bf;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn{
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    margin-top:12px;
+
+    transition:.2s;
+}
+
+
+/* CONFIRM PACKAGE */
+
+.confirmBtn{
+    background:#7669ff;
+
+    color:#fff;
+
+    box-shadow:
+    0 7px 25px rgba(118,105,255,.15);
+}
+
+.confirmBtn:hover{
+    background:#877bff;
+
+    transform:translateY(-2px);
+}
+
+
+/* NEXT STEP */
+
+.nextBtn{
+    background:#ffd76a;
+
+    color:#111;
+
+    margin-top:9px;
+
+    box-shadow:
+    0 7px 25px rgba(255,215,106,.10);
+}
+
+.nextBtn:hover{
+    background:#ffe18b;
+
+    transform:translateY(-2px);
+}
+
+
+/* WHATSAPP */
+
+.whatsappBtn{
+    background:#25D366;
+
+    color:#fff;
+
+    box-shadow:
+    0 7px 25px rgba(37,211,102,.13);
+}
+
+.whatsappBtn:hover{
+    background:#31e274;
+
+    transform:translateY(-2px);
+}
+
+
+/* BACK */
+
+.backBtn{
+    background:#191d35;
+
+    color:#888ea8;
+
+    border:1px solid #30365d;
+
+    margin-top:9px;
+}
+
+.backBtn:hover{
+    color:#fff;
+
+    border-color:#50577e;
+}
+
+
+/* =========================
+   FINAL CONFIRMATION
+========================= */
+
+.finalMessage{
+    text-align:center;
+
+    padding:10px 5px 20px;
+}
+
+.finalIcon{
+    width:65px;
+    height:65px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    margin:0 auto 15px;
+
+    border-radius:50%;
+
+    background:
+    rgba(118,105,255,.12);
+
+    border:1px solid #49417f;
+
+    font-size:30px;
+}
+
+.finalMessage h2{
+    font-size:23px;
+
+    margin-bottom:7px;
+}
+
+.finalMessage h2 span{
+    color:#a99fff;
+}
+
+.finalMessage p{
+    color:#707691;
+
+    font-size:12px;
+
+    line-height:1.5;
+}
+
+
+/* =========================
+   CONFIRM DETAILS
+========================= */
+
+.confirmDetails{
+    background:#090c18;
+
+    border:1px solid #252b4a;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    margin-top:5px;
+}
+
+.detailRow{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    padding:15px;
+
+    border-bottom:1px solid #1d223b;
+}
+
+.detailRow:last-child{
+    border-bottom:none;
+}
+
+.detailLabel{
+    color:#686e88;
+
+    font-size:12px;
+}
+
+.detailValue{
+    color:#fff;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    text-align:right;
+}
+
+.detailValue.highlight{
+    color:#ffd76a;
+
+    font-size:16px;
+}
+
+.uidValue{
+    color:#a99fff !important;
+
+    font-size:15px !important;
+
+    letter-spacing:.5px;
+}
+
+
+/* =========================
+   PAYMENT NOTICE
+========================= */
+
+.paymentNotice{
+    display:flex;
+
+    gap:10px;
+
+    margin-top:15px;
+
+    padding:13px;
+
+    border-radius:10px;
+
+    background:
+    rgba(37,211,102,.05);
+
+    border:1px solid rgba(37,211,102,.13);
+}
+
+.paymentIcon{
+    font-size:18px;
+}
+
+.paymentText{
+    color:#707691;
+
+    font-size:10px;
+
+    line-height:1.5;
+}
+
+.paymentText strong{
+    color:#a5aabd;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+
+    color:#50556d;
+
+    padding:25px;
+
+    font-size:11px;
+
+    border-top:1px solid #171b2d;
+}
+
+
+/* =========================
+   FLOATING WHATSAPP
+========================= */
+
+.float{
+    position:fixed;
+
+    right:20px;
+    bottom:20px;
+
+    width:58px;
+    height:58px;
+
+    border-radius:50%;
+
+    background:#25D366;
+
+    color:#fff;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    text-decoration:none;
+
+    font-size:27px;
+
+    box-shadow:
+    0 7px 25px rgba(0,0,0,.5);
+
+    transition:.2s;
+
+    z-index:20;
+}
+
+.float:hover{
+    transform:scale(1.08);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    header h1{
+        font-size:24px;
+    }
+
+    .hero{
+        padding:42px 15px 28px;
+    }
+
+    .hero h2{
+        font-size:24px;
+    }
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+
+        gap:11px;
+
+        padding:17px 14px 30px;
+    }
+
+    .sectionTitle{
+        padding:0 15px;
+    }
+
+    .card{
+        padding:17px 7px;
+    }
+
+    .card .icon{
+        font-size:33px;
+    }
+
+    .card h3{
+        font-size:14px;
+    }
+
+    .card .type{
+        font-size:9px;
+    }
+
+    .card .price{
+        font-size:17px;
+    }
+
+    .page{
+        width:94%;
+        padding:20px;
+        margin-top:20px;
+    }
+
+    .pageHeader h2{
+        font-size:20px;
+    }
+
+    .step{
+        font-size:9px;
+    }
+
+    .line{
+        width:20px;
+        margin:0 4px;
+    }
+
+    .packageName{
+        font-size:15px;
+    }
+
+    .priceValue{
+        font-size:18px;
+    }
+
+}
+
+
+/* VERY SMALL */
+
+@media(max-width:350px){
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .progress{
+        justify-content:flex-start;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<h1>EVA <span>TOP UP</span></h1>
+
+<p>Fast • Secure • Reliable • Nepal</p>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<div class="badge">
+    FREE FIRE TOP UP CENTER
+</div>
+
+<h2>
+    Choose Your Package
+</h2>
+
+<p>
+    Select diamonds or membership below
+</p>
+
+</section>
+
+
+<!-- =========================
+     PACKAGE TITLE
+========================= -->
+
+<div
+id="sectionTitle"
+class="sectionTitle">
+
+<h3>
+    Available Packages
+</h3>
+
+<p>
+    Choose the package you want to purchase
+</p>
+
+</div>
+
+
+<!-- =========================
+     PACKAGE GRID
+========================= -->
+
+<div
+id="packages"
+class="grid">
+
+</div>
+
+
+<!-- =====================================================
+     STEP 1
+===================================================== -->
+
+<div
+id="stepOne"
+class="page"
+style="display:none;">
+
+    <div class="pageHeader">
+
+        <h2>
+            Confirm <span>Package</span>
+        </h2>
+
+        <button
+        class="changeBtn"
+        onclick="goBackToPackages()">
+
+            Change Package
+
+        </button>
+
+    </div>
+
+
+    <!-- PROGRESS -->
+
+    <div class="progress">
+
+        <div class="step active">
+
+            <div class="stepNumber">
+                1
+            </div>
+
+            Package
+
+        </div>
+
+        <div class="line"></div>
+
+        <div class="step active">
+
+            <div class="stepNumber">
+                2
+            </div>
+
+            UID
+
+        </div>
+
+        <div class="line"></div>
+
+        <div class="step">
+
+            <div class="stepNumber">
+                3
+            </div>
+
+            Confirm
+
+        </div>
+
+    </div>
+
+
+    <!-- PACKAGE -->
+
+    <div class="orderCard">
+
+        <div class="orderTitle">
+            Selected Package
+        </div>
+
+        <div class="orderMain">
+
+            <div class="packageInfo">
+
+                <div
+                class="packageIcon"
+                id="packageIcon">
+
+                    💎
+
+                </div>
+
+                <div>
+
+                    <div
+                    class="packageName"
+                    id="packageName">
+
+                    </div>
+
+                    <div
+                    class="packageType"
+                    id="packageType">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="priceBox">
+
+                <div class="priceLabel">
+                    TOTAL
+                </div>
+
+                <div
+                class="priceValue"
+                id="priceText">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- UID -->
+
+    <div>
+
+        <div class="uidTitle">
+            🎮 Enter Your <span>Free Fire UID</span>
+        </div>
+
+        <div class="uidDescription">
+
+            Enter the UID of the Free Fire account
+            where you want to receive your package.
+
+        </div>
+
+
+        <div class="uidInputBox">
+
+            <div class="uidIcon">
+                🔢
+            </div>
+
+            <input
+            type="number"
+            id="uid"
+            placeholder="Enter your Free Fire UID"
+            inputmode="numeric">
+
+        </div>
+
+
+        <div class="securityInfo">
+
+            <div class="securityIcon">
+                🛡️
+            </div>
+
+            <div class="securityText">
+
+                <strong>Check your UID carefully.</strong><br>
+
+                Your package will be sent to
+                the UID you provide.
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- BUTTON -->
+
+    <button
+    class="btn confirmBtn"
+    onclick="confirmPackage()">
+
+        ✓ Confirm Package
+
+    </button>
+
+
+    <button
+    class="btn nextBtn"
+    onclick="nextStep()">
+
+        Next Step →
+
+    </button>
+
+
+    <button
+    class="btn backBtn"
+    onclick="goBackToPackages()">
+
+        ← Choose Another Package
+
+    </button>
+
+</div>
+
+
+<!-- =====================================================
+     STEP 2
+===================================================== -->
+
+<div
+id="stepTwo"
+class="page"
+style="display:none;">
+
+    <div class="pageHeader">
+
+        <h2>
+            Review <span>Order</span>
+        </h2>
+
+    </div>
+
+
+    <!-- PROGRESS -->
+
+    <div class="progress">
+
+        <div class="step active">
+
+            <div class="stepNumber">
+                1
+            </div>
+
+            Package
+
+        </div>
+
+        <div class="line"></div>
+
+        <div class="step active">
+
+            <div class="stepNumber">
+                2
+            </div>
+
+            UID
+
+        </div>
+
+        <div class="line"></div>
+
+        <div class="step active">
+
+            <div class="stepNumber">
+                3
+            </div>
+
+            Confirm
+
+        </div>
+
+    </div>
+
+
+    <!-- FINAL MESSAGE -->
+
+    <div class="finalMessage">
+
+        <div class="finalIcon">
+            ✓
+        </div>
+
+        <h2>
+            Check Your <span>Order</span>
+        </h2>
+
+        <p>
+            Please verify your package and UID
+            before continuing to WhatsApp.
+        </p>
+
+    </div>
+
+
+    <!-- DETAILS -->
+
+    <div class="confirmDetails">
+
+
+        <div class="detailRow">
+
+            <div class="detailLabel">
+                Package
+            </div>
+
+            <div
+            class="detailValue"
+            id="finalPackage">
+
+            </div>
+
+        </div>
+
+
+        <div class="detailRow">
+
+            <div class="detailLabel">
+                Package Type
+            </div>
+
+            <div
+            class="detailValue"
+            id="finalType">
+
+            </div>
+
+        </div>
+
+
+        <div class="detailRow">
+
+            <div class="detailLabel">
+                Free Fire UID
+            </div>
+
+            <div
+            class="detailValue uidValue"
+            id="finalUID">
+
+            </div>
+
+        </div>
+
+
+        <div class="detailRow">
+
+            <div class="detailLabel">
+                Total Price
+            </div>
+
+            <div
+            class="detailValue highlight"
+            id="finalPrice">
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- PAYMENT NOTICE -->
+
+    <div class="paymentNotice">
+
+        <div class="paymentIcon">
+            💬
+        </div>
+
+        <div class="paymentText">
+
+            <strong>Next: WhatsApp Payment</strong><br>
+
+            After confirming, WhatsApp will open
+            with your order details. You can then
+            contact EVA TOP UP for payment and
+            top-up processing.
+
+        </div>
+
+    </div>
+
+
+    <!-- FINAL WHATSAPP BUTTON -->
+
+    <button
+    class="btn whatsappBtn"
+    onclick="continueToWhatsApp()">
+
+        💬 Confirm & Continue to WhatsApp for Payment
+
+    </button>
+
+
+    <!-- EDIT -->
+
+    <button
+    class="btn backBtn"
+    onclick="backToStepOne()">
+
+        ← Edit Order
+
+    </button>
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+© 2026 EVA TOP UP | Nepal
+
+</footer>
+
+
+<!-- =========================
+     FLOATING WHATSAPP
+========================= -->
+
+<a
+class="float"
+href="https://wa.me/9779768769941?text=Hi%20EVA%20Top%20Up%20Center"
+target="_blank">
+
+💬
+
+</a>
+
+
+<script>
+
+/* =========================
+   WHATSAPP
+========================= */
+
+const phone="9779768769941";
+
+
+/* =========================
+   PACKAGES
+========================= */
+
+const packages=[
+
+    {
+        name:"115",
+        price:110,
+        type:"Diamonds",
+        icon:"💎"
+    },
+
+    {
+        name:"240",
+        price:230,
+        type:"Diamonds",
+        icon:"💎"
+    },
+
+    {
+        name:"355",
+        price:345,
+        type:"Diamonds",
+        icon:"💎"
+    },
+
+    {
+        name:"480",
+        price:462,
+        type:"Diamonds",
+        icon:"💎"
+    },
+
+    {
+        name:"610",
+        price:578,
+        type:"Diamonds",
+        icon:"💎"
+    },
+
+    {
+        name:"725",
+        price:693,
+        type:"Diamonds",
+        icon:"💎"
+    },
+
+    {
+        name:"850",
+        price:809,
+        type:"Diamonds",
+        icon:"💎"
+    },
+
+    {
+        name:"965",
+        price:924,
+        type:"Diamonds",
+        icon:"💎"
+    },
+
+    {
+        name:"1090",
+        price:1040,
+        type:"Diamonds",
+        icon:"💎"
+    },
+
+    {
+        name:"1240",
+        price:1155,
+        type:"Diamonds",
+        icon:"💎"
+    },
+
+    {
+        name:"1480",
+        price:1386,
+        type:"Diamonds",
+        icon:"💎"
+    },
+
+    {
+        name:"1595",
+        price:1500,
+        type:"Diamonds",
+        icon:"💎"
+    },
+
+    {
+        name:"1720",
+        price:1694,
+        type:"Diamonds",
+        icon:"💎"
+    },
+
+    {
+        name:"1960",
+        price:1895,
+        type:"Diamonds",
+        icon:"💎"
+    },
+
+    {
+        name:"2530",
+        price:2420,
+        type:"Diamonds",
+        icon:"💎"
+    },
+
+    {
+        name:"5060",
+        price:4840,
+        type:"Diamonds",
+        icon:"💎"
+    },
+
+
+    /* MEMBERSHIP */
+
+    {
+        name:"Weekly",
+        price:220,
+        type:"Membership",
+        icon:"🎁",
+        special:true
+    },
+
+    {
+        name:"Monthly",
+        price:1100,
+        type:"Membership",
+        icon:"👑",
+        special:true
+    }
+
+];
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+let selectedPackage=null;
+
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const grid=
+document.getElementById("packages");
+
+
+/* =========================
+   CREATE CARDS
+========================= */
+
+packages.forEach((item,index)=>{
+
+    const special=
+    item.special
+    ? "specialCard"
+    : "";
+
+
+    const displayName=
+    item.type==="Diamonds"
+    ? item.name+" Diamonds"
+    : item.name;
+
+
+    grid.innerHTML+=`
+
+    <div
+    class="card ${special}"
+    onclick="choosePackage(${index})">
+
+        <div class="icon">
+            ${item.icon}
+        </div>
+
+        <h3>
+            ${displayName}
+        </h3>
+
+        <div class="type">
+            ${item.type}
+        </div>
+
+        <div class="price">
+            Rs ${item.price.toLocaleString()}
+        </div>
+
+    </div>
+
+    `;
+
+});
+
+
+/* =========================
+   SELECT PACKAGE
+========================= */
+
+function choosePackage(index){
+
+    selectedPackage=
+    packages[index];
+
+
+    const item=
+    selectedPackage;
+
+
+    const displayName=
+    item.type==="Diamonds"
+    ? item.name+" Diamonds"
+    : item.name;
+
+
+    document.getElementById(
+        "packageName"
+    ).innerText=
+    displayName;
+
+
+    document.getElementById(
+        "packageType"
+    ).innerText=
+    item.type;
+
+
+    document.getElementById(
+        "priceText"
+    ).innerText=
+    "Rs "+item.price.toLocaleString();
+
+
+    document.getElementById(
+        "packageIcon"
+    ).innerText=
+    item.icon;
+
+
+    document.getElementById(
+        "packages"
+    ).style.display="none";
+
+
+    document.getElementById(
+        "sectionTitle"
+    ).style.display="none";
+
+
+    document.querySelector(
+        ".hero"
+    ).style.display="none";
+
+
+    document.getElementById(
+        "stepOne"
+    ).style.display="block";
+
+
+    document.getElementById(
+        "stepTwo"
+    ).style.display="none";
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   CONFIRM PACKAGE BUTTON
+========================= */
+
+function confirmPackage(){
+
+    const uid=
+    document.getElementById(
+        "uid"
+    ).value.trim();
+
+
+    if(selectedPackage===null){
+
+        alert(
+            "Please select a package."
+        );
+
+        return;
+
+    }
+
+
+    if(uid===""){
+
+        alert(
+            "Please enter your Free Fire UID first."
+        );
+
+        document.getElementById(
+            "uid"
+        ).focus();
+
+        return;
+
+    }
+
+
+    if(uid.length<5){
+
+        alert(
+            "Please enter a valid Free Fire UID."
+        );
+
+        document.getElementById(
+            "uid"
+        ).focus();
+
+        return;
+
+    }
+
+
+    alert(
+        "Package and UID confirmed. You can continue to the next step."
+    );
+
+}
+
+
+/* =========================
+   NEXT STEP
+========================= */
+
+function nextStep(){
+
+    const uid=
+    document.getElementById(
+        "uid"
+    ).value.trim();
+
+
+    if(selectedPackage===null){
+
+        alert(
+            "Please select a package."
+        );
+
+        return;
+
+    }
+
+
+    if(uid===""){
+
+        alert(
+            "Please enter your Free Fire UID."
+        );
+
+        document.getElementById(
+            "uid"
+        ).focus();
+
+        return;
+
+    }
+
+
+    if(uid.length<5){
+
+        alert(
+            "Please enter a valid Free Fire UID."
+        );
+
+        document.getElementById(
+            "uid"
+        ).focus();
+
+        return;
+
+    }
+
+
+    const item=
+    selectedPackage;
+
+
+    const displayName=
+    item.type==="Diamonds"
+    ? item.name+" Diamonds"
+    : item.name;
+
+
+    /* SHOW FINAL DETAILS */
+
+    document.getElementById(
+        "finalPackage"
+    ).innerText=
+    displayName;
+
+
+    document.getElementById(
+        "finalType"
+    ).innerText=
+    item.type;
+
+
+    document.getElementById(
+        "finalUID"
+    ).innerText=
+    uid;
+
+
+    document.getElementById(
+        "finalPrice"
+    ).innerText=
+    "Rs "+item.price.toLocaleString();
+
+
+    /* CHANGE INTERFACE */
+
+    document.getElementById(
+        "stepOne"
+    ).style.display="none";
+
+
+    document.getElementById(
+        "stepTwo"
+    ).style.display="block";
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   BACK TO STEP ONE
+========================= */
+
+function backToStepOne(){
+
+    document.getElementById(
+        "stepTwo"
+    ).style.display="none";
+
+
+    document.getElementById(
+        "stepOne"
+    ).style.display="block";
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   BACK TO PACKAGES
+========================= */
+
+function goBackToPackages(){
+
+    document.getElementById(
+        "stepOne"
+    ).style.display="none";
+
+
+    document.getElementById(
+        "stepTwo"
+    ).style.display="none";
+
+
+    document.getElementById(
+        "packages"
+    ).style.display="grid";
+
+
+    document.getElementById(
+        "sectionTitle"
+    ).style.display="block";
+
+
+    document.querySelector(
+        ".hero"
+    ).style.display="block";
+
+
+    document.getElementById(
+        "uid"
+    ).value="";
+
+
+    selectedPackage=null;
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   FINAL WHATSAPP
+========================= */
+
+function continueToWhatsApp(){
+
+    if(selectedPackage===null){
+
+        alert(
+            "No package selected."
+        );
+
+        return;
+
+    }
+
+
+    const uid=
+    document.getElementById(
+        "uid"
+    ).value.trim();
+
+
+    if(uid===""){
+
+        alert(
+            "UID is missing."
+        );
+
+        backToStepOne();
+
+        return;
+
+    }
+
+
+    const item=
+    selectedPackage;
+
+
+    const displayName=
+    item.type==="Diamonds"
+    ? item.name+" Diamonds"
+    : item.name;
+
+
+    const message=
+
+`Hi, EVA Top Up Center 👋
+
+I want to place an order.
+
+━━━━━━━━━━━━━━
+📦 Package: ${displayName}
+📋 Type: ${item.type}
+💰 Price: Rs ${item.price.toLocaleString()}
+🎮 Free Fire UID: ${uid}
+━━━━━━━━━━━━━━
+
+I have confirmed the package and UID.
+
+Please provide the payment details and proceed with my top-up.
+
+Thank you!`;
+
+
+    const url=
+    "https://wa.me/"+phone+
+    "?text="+
+    encodeURIComponent(message);
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+</script>
+
+</body>
+</html>
+```
